@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# IDEs & Editors
+.vscode/
+.idea/
+
+# Logs & Temporary files
+*.log
