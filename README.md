@@ -35,6 +35,7 @@ wordle-solver/
 ├── wordle_rules.py             # Wordle feedback simulation rules (G/Y/B)
 ├── browser_bot.py              # Playwright browser controller
 ├── play.py                     # Unified entry point for Playwright automation
+├── requirements.txt            # Project dependencies
 └── README.md
 ```
 
@@ -61,7 +62,7 @@ wordle-solver/
 
 3. **Install dependencies:**
    ```bash
-   pip install playwright requests english-words
+   pip install -r requirements.txt
    ```
 
 4. **Install Chromium for Playwright:**
