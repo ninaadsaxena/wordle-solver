@@ -6,12 +6,18 @@ Two modes:
   python main.py benchmark   -> tests the strategy against every word
 """
 
+import random
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from engine import Engine
 from wordle_rules import feedback, load_words, pretty
+
+TOP_OPENERS = [
+    "CRANE", "SLATE", "STARE", "ROATE", "RAISE",
+    "TRACE", "SNARE", "ARISE", "SALET", "TALER"
+]
 
 
 def make_engine():
@@ -24,7 +30,11 @@ def assist_mode():
     print(f"Loaded {len(eng.candidates)} words. Let's solve today's Wordle.\n")
 
     for turn in range(1, 7):
-        guess = eng.best_guess()
+        if turn == 1:
+            valid_openers = [w for w in TOP_OPENERS if w in eng.candidates]
+            guess = random.choice(valid_openers) if valid_openers else eng.best_guess()
+        else:
+            guess = eng.best_guess()
         print(f"Turn {turn}: try  ->  {guess}")
         pattern = input(
             "Enter the result as 5 letters (G=green, Y=yellow, B=gray), "
