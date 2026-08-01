@@ -138,7 +138,12 @@ For each legal guess, it calculates how candidate words would be partitioned acr
 
 To eliminate unnecessary turn 1 calculations (which require evaluating ~100M word pair combinations), both local and Datamuse solvers randomly select an opening guess from a curated list of top 10 mathematically optimal openers:
 
-$$\text{TOP\_OPENERS} = [\text{"CRANE"}, \text{"SLATE"}, \text{"STARE"}, \text{"ROATE"}, \text{"RAISE"}, \text{"TRACE"}, \text{"SNARE"}, \text{"ARISE"}, \text{"SALET"}, \text{"TALER"}]$$
+```python
+TOP_OPENERS = [
+    "CRANE", "SLATE", "STARE", "ROATE", "RAISE",
+    "TRACE", "SNARE", "ARISE", "SALET", "TALER"
+]
+```
 
 ### Mathematical Rationale
 1. **Entropy Ranking**: Based on Information Theory research (including Grant Sanderson / 3Blue1Brown and MIT benchmarks), these 10 words yield the highest expected information gain (~5.75 to 5.84 bits) across all ~13,000 legal 5-letter English words.
