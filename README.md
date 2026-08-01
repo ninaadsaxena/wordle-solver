@@ -78,14 +78,20 @@ wordle-solver/
 
 Watch the bot open NYT Wordle and solve today's puzzle automatically:
 
-- **Using Local Wordlist:**
+- **Real Daily Mode (Default - Logged-in NYT Account & Persistent Profile):**
+  By default, running `play.py` opens Google Chrome with your persistent profile (where your NYT login session, streak, and daily stats are saved):
   ```bash
   python play.py local
+  # or
+  python play.py datamuse
   ```
 
-- **Using Live Datamuse API:**
+- **Reattempt / Testing Mode (Fresh Incognito Window):**
+  If you've already completed today's Wordle on your account, or want to practice/test unlimited times on a fresh board, pass `--reattempt` (or `--test` / `-r`):
   ```bash
-  python play.py datamuse
+  python play.py local --reattempt
+  # or
+  python play.py datamuse --reattempt
   ```
 
 ---
